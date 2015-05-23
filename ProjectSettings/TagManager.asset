@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Liana
+  - Banana
+  - BananaBunch
+  - Canteen
+  - Hat
+  - Backpack
   layers:
   - Default
   - TransparentFX
@@ -38,6 +44,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3084024001
+    locked: 0
+  - name: Liana
+    uniqueID: 2377763311
+    locked: 0
+  - name: Objects
+    uniqueID: 2297009851
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bonuses and Powerups
+    uniqueID: 1696401037
     locked: 0
