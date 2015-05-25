@@ -87,6 +87,104 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &52785070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 52785071}
+  - 222: {fileID: 52785074}
+  - 114: {fileID: 52785073}
+  - 131: {fileID: 52785072}
+  m_Layer: 5
+  m_Name: Text 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &52785071
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52785070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 428032138}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -47, y: -22}
+  m_SizeDelta: {x: 451.299988, y: 158.699997}
+  m_Pivot: {x: .5, y: .5}
+--- !u!131 &52785072
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52785070}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 1d0c184845252df44a655359de388cb8, type: 3}
+  m_Color: {r: .0588235259, g: .0588235259, b: .0588235259, a: .501960814}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 1
+    y: 1
+    width: 1
+    height: 1
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
+--- !u!114 &52785073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52785070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: .710344791, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec odio eu
+    lectus malesuada tristique. Pellentesque non vehicula orci. Nulla semper commodo
+    mi ac tempus. Etiam volutpat urna massa, eu convallis ligula accumsan a. Nulla
+    a lorem ex. Nunc vitae vehicula est. Donec non urna sed arcu efficitur malesuada.
+    Aliquam erat volutpat. Nullam in urna ex. Vestibulum hendrerit interdum ultrices.\r\n\r\nVestibulum
+    ut commodo turpis, in rutrum dui. Morbi ut nulla ac lectus volutpat sollicitudin.
+    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus. Suspendisse potenti. Donec pellentesque, nibh sed finibus rhoncus, elit mauris
+    molestie purus, nec tincidunt velit neque id dui. Curabitur ut arcu pulvinar,
+    hendrerit eros sit amet, euismod risus. Suspendisse dignissim dolor iaculis urna
+    sagittis, a pharetra dui sagittis. Duis semper metus tortor. Curabitur non risus
+    urna. Nam interdum fringilla efficitur. Aliquam erat volutpat. In scelerisque
+    sagittis nisi, sed auctor erat cursus nec. "
+--- !u!222 &52785074
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52785070}
 --- !u!1 &417448437
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,8 +366,9 @@ RectTransform:
   - {fileID: 1487313999}
   - {fileID: 1663564979}
   - {fileID: 1574429532}
+  - {fileID: 52785071}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -467,7 +566,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1487313998
 GameObject:
   m_ObjectHideFlags: 0
