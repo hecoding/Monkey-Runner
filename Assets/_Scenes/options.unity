@@ -811,7 +811,7 @@ GameObject:
   - 4: {fileID: 669469557}
   - 212: {fileID: 669469556}
   m_Layer: 0
-  m_Name: jungle-a-flat-col-corr
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

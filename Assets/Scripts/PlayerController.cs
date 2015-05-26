@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (transform.position.y < lowerBound) {
-			// do whatever it has to be done when player die
+			die ();
 			transform.position = new Vector3(-5.92f,-2.35f,0f);
 		}
 
@@ -93,7 +93,16 @@ public class PlayerController : MonoBehaviour {
 			}
 
 			break;
+		case "Banana":
+		case "BananaBunch":
+			GameController.S.modifyPoints (GameController.S.givePoints (other.tag));
+			Destroy (other.gameObject);
+			break;
 		}
+	}
+
+	void die() {
+		// TODO whatever it has to be done when player dies
 	}
 
 	public void attachObject (GameObject obj) {

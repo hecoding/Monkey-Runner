@@ -99,7 +99,7 @@ GameObject:
   - 114: {fileID: 52785073}
   - 131: {fileID: 52785072}
   m_Layer: 5
-  m_Name: Text 2
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,8 +119,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -47, y: -22}
-  m_SizeDelta: {x: 451.299988, y: 158.699997}
+  m_AnchoredPosition: {x: -97.3000031, y: -22}
+  m_SizeDelta: {x: 280, y: 158.699997}
   m_Pivot: {x: .5, y: .5}
 --- !u!131 &52785072
 GUITexture:
@@ -166,19 +166,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec odio eu
-    lectus malesuada tristique. Pellentesque non vehicula orci. Nulla semper commodo
-    mi ac tempus. Etiam volutpat urna massa, eu convallis ligula accumsan a. Nulla
-    a lorem ex. Nunc vitae vehicula est. Donec non urna sed arcu efficitur malesuada.
-    Aliquam erat volutpat. Nullam in urna ex. Vestibulum hendrerit interdum ultrices.\r\n\r\nVestibulum
-    ut commodo turpis, in rutrum dui. Morbi ut nulla ac lectus volutpat sollicitudin.
-    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-    mus. Suspendisse potenti. Donec pellentesque, nibh sed finibus rhoncus, elit mauris
-    molestie purus, nec tincidunt velit neque id dui. Curabitur ut arcu pulvinar,
-    hendrerit eros sit amet, euismod risus. Suspendisse dignissim dolor iaculis urna
-    sagittis, a pharetra dui sagittis. Duis semper metus tortor. Curabitur non risus
-    urna. Nam interdum fringilla efficitur. Aliquam erat volutpat. In scelerisque
-    sagittis nisi, sed auctor erat cursus nec. "
+  m_Text: "This game was developed by:\nH\xE9ctor Laria Mantec\xF3n\nAndrea Mu\xF1oz
+    P\xE9rez\nJose Carlos Valera Villalba"
 --- !u!222 &52785074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -198,6 +187,7 @@ GameObject:
   - 81: {fileID: 417448440}
   - 222: {fileID: 417448439}
   - 20: {fileID: 417448438}
+  - 114: {fileID: 417448444}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -281,6 +271,17 @@ RectTransform:
   m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &417448444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417448437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e6124015e747d438b70290f4e085bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &428032134
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,13 +368,101 @@ RectTransform:
   - {fileID: 1663564979}
   - {fileID: 1574429532}
   - {fileID: 52785071}
+  - {fileID: 701303474}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &701303473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 701303474}
+  - 222: {fileID: 701303477}
+  - 114: {fileID: 701303476}
+  - 131: {fileID: 701303475}
+  m_Layer: 5
+  m_Name: Contributors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &701303474
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701303473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 428032138}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 178, y: -21.9999847}
+  m_SizeDelta: {x: 282.559998, y: 158.699997}
+  m_Pivot: {x: .5, y: .5}
+--- !u!131 &701303475
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701303473}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 1d0c184845252df44a655359de388cb8, type: 3}
+  m_Color: {r: .0588235259, g: .0588235259, b: .0588235259, a: .501960814}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 1
+    y: 1
+    width: 1
+    height: 1
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
+--- !u!114 &701303476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701303473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: .710344791, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "We would like to give special thanks to:\nRa\xFAl Hern\xE1ndez Bretones
+    - Liana sprite\n"
+--- !u!222 &701303477
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701303473}
 --- !u!1 &1126738792
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +539,7 @@ GameObject:
   - 4: {fileID: 1143552592}
   - 212: {fileID: 1143552591}
   m_Layer: 0
-  m_Name: jungle-a-flat-col-corr
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,7 +655,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1487313998
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +668,7 @@ GameObject:
   - 114: {fileID: 1487314001}
   - 114: {fileID: 1487314000}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,16 +731,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1537372333}
+      - m_Target: {fileID: 417448444}
         m_MethodName: changeToScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: mainMenu
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -683,45 +772,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1487313998}
---- !u!1 &1537372332
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1537372334}
-  - 114: {fileID: 1537372333}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1537372333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537372332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6dbfd4f6abaef479316b354b91f648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1537372334
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537372332}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
 --- !u!1 &1574429531
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +783,7 @@ GameObject:
   - 222: {fileID: 1574429534}
   - 114: {fileID: 1574429533}
   m_Layer: 5
-  m_Name: Text 1
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +849,7 @@ GameObject:
   - 222: {fileID: 1663564981}
   - 114: {fileID: 1663564980}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
