@@ -11,11 +11,11 @@ public class Main : MonoBehaviour {
 
 	}
 
-	public static void changeToScene (string scene) {
+	public void changeToScene (string scene) {
 		Application.LoadLevel (scene);
 	}
 
-	public static void Quit() {
+	public void Quit() {
 		Application.Quit();
 	}
 }
