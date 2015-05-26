@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public float maxAbsVelY = 20.0f;
 	public float jumpForce = 250.0f;
 	public float transmittedForceToLiana = 1000.0f;
+	public GameObject attachedObject;
 
 	private Rigidbody2D rb;
 	private Transform oldParent;
@@ -18,6 +19,9 @@ public class PlayerController : MonoBehaviour {
 	private bool velChanged;
 	private float currentVelX;
 	private float currentVelY;
+
+	private Transform oldAttObjParent;
+	private bool attObjWasKinematic;
 
 	void Awake() {
 		S = this;
@@ -30,6 +34,11 @@ public class PlayerController : MonoBehaviour {
 		velChanged = false;
 		currentVelX = currentVelY = 0f;
 
+		if (attachedObject)
+			attachObject (attachedObject);
+		attObjWasKinematic = false;
+
+		// debugging stuff
 		rb.AddForce (new Vector2(2, 1) * initialForce);
 	}
 
@@ -85,5 +94,27 @@ public class PlayerController : MonoBehaviour {
 
 			break;
 		}
+	}
+
+	public void attachObject (GameObject obj) {
+		if (obj) attachedObject = obj;
+		else 	 return;
+
+		if (!obj.GetComponent<Rigidbody2D> () || obj.GetComponent<Rigidbody2D> ().isKinematic)
+			attObjWasKinematic = true;
+		else
+			obj.GetComponent<Rigidbody2D> ().isKinematic = true;
+
+		oldAttObjParent = obj.transform.parent;
+		obj.transform.parent = transform;
+		// setting to pretend the monkey is grabbing the object
+		obj.transform.position = transform.position - new Vector3(0.5f,0.8f,0);
+	}
+
+	public void deattachObject (GameObject obj) {
+		if (!attObjWasKinematic)
+			obj.GetComponent<Rigidbody2D> ().isKinematic = false;
+
+		obj.transform.parent = oldAttObjParent;
 	}
 }
