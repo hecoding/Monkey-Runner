@@ -382,7 +382,7 @@ GameObject:
   - 222: {fileID: 696921663}
   - 114: {fileID: 696921662}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Main Title Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,7 +448,7 @@ GameObject:
   - 222: {fileID: 839854570}
   - 114: {fileID: 839854569}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Options Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,7 +850,7 @@ GameObject:
   - 222: {fileID: 1328119220}
   - 114: {fileID: 1328119219}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Play Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +916,7 @@ GameObject:
   - 222: {fileID: 1526636559}
   - 114: {fileID: 1526636558}
   m_Layer: 5
-  m_Name: Text 1
+  m_Name: Main Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,7 +1077,7 @@ GameObject:
   - 4: {fileID: 1827699254}
   - 212: {fileID: 1827699253}
   m_Layer: 0
-  m_Name: jungle-a-flat-col-corr
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1132,7 +1132,7 @@ GameObject:
   - 222: {fileID: 2082550168}
   - 114: {fileID: 2082550167}
   m_Layer: 5
-  m_Name: Text
+  m_Name: About Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
