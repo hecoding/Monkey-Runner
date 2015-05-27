@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,6 +8,8 @@ public class GameController : MonoBehaviour {
 
 	// a public reference to the player would be better than take it directly
 	public bool freezeCameraY;
+	public Text countText;
+	public Text LoseText;
 	private int _playerPoints;
 	public int playerPoints { get { return _playerPoints; } }
 	
@@ -25,6 +28,8 @@ public class GameController : MonoBehaviour {
 		offsetCameraXPos = transform.position.x - PlayerController.S.transform.position.x;
 
 		_playerPoints = 0;
+		setCountText ();
+
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
 	}
@@ -36,11 +41,21 @@ public class GameController : MonoBehaviour {
 		transform.position = new Vector3 (PlayerController.S.transform.position.x + offsetCameraXPos, currentCameraYPos, initialCameraPos.z);
 	}
 
-	public int givePoints (string bonusName) {
+	public void onDie() {
+		LoseText.text = "You Lose! Total points: " + _playerPoints.ToString ();
+		countText.text = "";
+	}
+
+	public int getPoints (string bonusName) {
 		return bonusPoints[bonusName];
 	}
 
 	public void modifyPoints (int points) {
 		_playerPoints += points;
+		setCountText ();
+	}
+
+	void setCountText() {
+		countText.text = "Score: " + _playerPoints.ToString ();
 	}
 }

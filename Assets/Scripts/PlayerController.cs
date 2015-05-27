@@ -57,10 +57,8 @@ public class PlayerController : MonoBehaviour {
 			hanged = false;
 		}
 
-		if (transform.position.y < lowerBound) {
+		if (transform.position.y < lowerBound)
 			die ();
-			transform.position = new Vector3(-5.92f,-2.35f,0f);
-		}
 
 		currentVelX = rb.velocity.x;
 		currentVelY = rb.velocity.y;
@@ -95,14 +93,16 @@ public class PlayerController : MonoBehaviour {
 			break;
 		case "Banana":
 		case "BananaBunch":
-			GameController.S.modifyPoints (GameController.S.givePoints (other.tag));
+			GameController.S.modifyPoints (GameController.S.getPoints (other.tag));
 			Destroy (other.gameObject);
 			break;
 		}
 	}
 
 	void die() {
-		// TODO whatever it has to be done when player dies
+		// transform.position = new Vector3(-5.92f,-2.35f,0f);
+		GameController.S.onDie ();
+		gameObject.SetActive (false);
 	}
 
 	public void attachObject (GameObject obj) {
