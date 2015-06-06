@@ -25,19 +25,19 @@ public class PlayerController : MonoBehaviour {
 
 	void Awake() {
 		S = this;
-	}
-	
-	void Start () {
+
 		rb = GetComponent<Rigidbody2D> ();
 		oldParent = transform.parent;
 		lowerBound = Camera.main.ScreenToWorldPoint (new Vector3 (0, 0, 0)).y;
 		velChanged = false;
 		currentVelX = currentVelY = 0f;
-
+		
 		if (attachedObject)
 			attachObject (attachedObject);
 		attObjWasKinematic = false;
-
+	}
+	
+	void Start () {
 		// debugging stuff
 		rb.AddForce (new Vector2(2, 1) * initialForce);
 	}
