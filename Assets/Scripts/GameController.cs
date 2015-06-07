@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour {
 	// a public reference to the player would be better than take it directly
 	public bool freezeCameraY;
 	public Text countText;
-	public Text LoseText;
+	public Text winText;
+	public Text loseText;
 	private int _playerPoints;
 	public int playerPoints { get { return _playerPoints; } }
 	
@@ -41,8 +42,13 @@ public class GameController : MonoBehaviour {
 		transform.position = new Vector3 (PlayerController.S.transform.position.x + offsetCameraXPos, currentCameraYPos, initialCameraPos.z);
 	}
 
+	public void winLevel() {
+		winText.text = "You Win! Total points: " + _playerPoints.ToString ();
+		countText.text = "";
+	}
+
 	public void onDie() {
-		LoseText.text = "You Lose! Total points: " + _playerPoints.ToString ();
+		loseText.text = "You Lose! Total points: " + _playerPoints.ToString ();
 		countText.text = "";
 	}
 

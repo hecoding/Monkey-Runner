@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour {
 
 				rb.isKinematic = true;
 				transform.parent = other.transform;
+				transform.position = other.transform.position - new Vector3(0.6f,0,0);
 
 				hanged = true;
 			}
@@ -95,6 +96,10 @@ public class PlayerController : MonoBehaviour {
 		case "BananaBunch":
 			GameController.S.modifyPoints (GameController.S.getPoints (other.tag));
 			Destroy (other.gameObject);
+			break;
+		case "Finish":
+			rb.isKinematic = true; // do some good looking dance
+			GameController.S.winLevel();
 			break;
 		}
 	}
