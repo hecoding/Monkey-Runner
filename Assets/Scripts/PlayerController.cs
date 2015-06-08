@@ -4,11 +4,11 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	static public PlayerController S;
 
-	public float initialForce = 250.0f;
-	public float maxAbsVelX = 20.0f;
-	public float maxAbsVelY = 20.0f;
-	public float jumpForce = 250.0f;
-	public float transmittedForceToLiana = 1000.0f;
+	public float initialForce;
+	public float jumpForce;
+	public Vector2 jumpDirection;
+	public Vector2 maxAbsVelocity;
+	public float transmittedForceToLiana;
 	public GameObject attachedObject;
 
 	private Rigidbody2D rb;
@@ -38,8 +38,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Start () {
-		// debugging stuff
-		rb.AddForce (new Vector2(2, 1) * initialForce);
+		rb.AddForce (jumpDirection * initialForce);
 	}
 
 	void Update () {
@@ -47,50 +46,20 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (hanged && Input.GetKeyUp ("space")) {
-			rb.isKinematic = false;
-			rb.AddForce (new Vector2(2, 1) * jumpForce);
-			transform.rotation = Quaternion.Euler(0,0,0);
-			// some inverse force to the liana would be nice
-
-			transform.parent = oldParent;
-			hanged = false;
-		}
+		if (hanged && Input.GetKeyUp ("space"))
+			unhangFromLiana ();
 
 		if (transform.position.y < lowerBound)
 			die ();
 
-		currentVelX = rb.velocity.x;
-		currentVelY = rb.velocity.y;
-
-		if (Mathf.Abs (rb.velocity.x) > maxAbsVelX) {
-			currentVelX = maxAbsVelX * Mathf.Sign(rb.velocity.x);
-			velChanged = true;
-		}
-		if (Mathf.Abs (rb.velocity.y) > maxAbsVelY) {
-			currentVelY = maxAbsVelY * Mathf.Sign(rb.velocity.y);
-			velChanged = true;
-		}
-
-		if (velChanged) {
-			rb.velocity = new Vector2 (currentVelX, currentVelY);
-			velChanged = false;
-		}
+		checkVelocityConstraints ();
 	}
 
 	void OnTriggerEnter2D (Collider2D other)  {
 		switch (other.tag) {
 		case "Liana": 
-			if (!hanged && Input.GetKey("space")) {
-				other.attachedRigidbody.AddForce(new Vector2(1,0) * transmittedForceToLiana);
-
-				rb.isKinematic = true;
-				transform.parent = other.transform;
-				transform.position = other.transform.position - new Vector3(0.6f,0,0);
-
-				hanged = true;
-			}
-
+			if (!hanged && Input.GetKey("space"))
+				hangFromLiana (other.gameObject);
 			break;
 		case "Banana":
 		case "BananaBunch":
@@ -102,6 +71,51 @@ public class PlayerController : MonoBehaviour {
 			GameController.S.winLevel();
 			break;
 		}
+	}
+
+	void checkVelocityConstraints () {
+		Rigidbody2D rigidb;
+
+		if (hanged) rigidb = transform.parent.GetComponent<Rigidbody2D> ();
+		else rigidb = rb;
+
+		currentVelX = rigidb.velocity.x;
+		currentVelY = rigidb.velocity.y;
+		
+		if (Mathf.Abs (rigidb.velocity.x) > maxAbsVelocity.x) {
+			currentVelX = maxAbsVelocity.x * Mathf.Sign (rigidb.velocity.x);
+			velChanged = true;
+		}
+		
+		if (Mathf.Abs (rigidb.velocity.y) > maxAbsVelocity.y) {
+			currentVelY = maxAbsVelocity.y * Mathf.Sign (rigidb.velocity.y);
+			velChanged = true;
+		}
+		
+		if (velChanged) {
+			rigidb.velocity = new Vector2 (currentVelX, currentVelY);
+			velChanged = false;
+		}
+	}
+
+	void hangFromLiana (GameObject other) {
+		rb.isKinematic = true;
+		transform.parent = other.transform;
+		transform.position = other.transform.position - new Vector3 (0.6f, 0, 0);
+		other.GetComponent<Rigidbody2D>().mass += rb.mass;
+
+		other.GetComponent<Rigidbody2D>().AddForce (new Vector2 (1, 0) * transmittedForceToLiana * rb.mass * 0.35f);
+		hanged = true;
+	}
+
+	void unhangFromLiana() {
+		rb.isKinematic = false;
+		rb.AddForce (jumpDirection * jumpForce);
+		transform.rotation = Quaternion.Euler (0, 0, 0);
+		// some inverse force to the liana would be nice
+		transform.parent.GetComponent<Rigidbody2D> ().mass -= rb.mass;
+		transform.parent = oldParent;
+		hanged = false;
 	}
 
 	void die() {
