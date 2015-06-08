@@ -10,6 +10,7 @@ TagManager:
   - Canteen
   - Hat
   - Backpack
+  - Pineapple
   layers:
   - Default
   - TransparentFX
