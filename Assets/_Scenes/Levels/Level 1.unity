@@ -1895,8 +1895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cde32513d4e9ce46ae52b1efe30d000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialForce: 2300
-  jumpForce: 2300
+  initialForce: 2600
+  jumpForce: 2500
   jumpDirection: {x: 2, y: .850000024}
   maxAbsVelocity: {x: 20, y: 20}
   transmittedForceToLiana: 1800
@@ -1922,7 +1922,7 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273788194}
-  m_Mass: 10
+  m_Mass: 12
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -2823,7 +2823,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1822765849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4000001, y: 1.5, z: -12}
+  m_LocalPosition: {x: -6.5, y: 1.5, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 775595994}

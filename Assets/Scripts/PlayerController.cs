@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour {
 		transform.position = other.transform.position - new Vector3 (0.6f, 0, 0);
 		other.GetComponent<Rigidbody2D>().mass += rb.mass;
 
-		other.GetComponent<Rigidbody2D>().AddForce (new Vector2 (1, 0) * transmittedForceToLiana * rb.mass * 0.35f);
+		other.GetComponent<Rigidbody2D>().AddForce (new Vector2 (1, 0) * transmittedForceToLiana * rb.mass * 0.4f);
 		hanged = true;
 	}
 
