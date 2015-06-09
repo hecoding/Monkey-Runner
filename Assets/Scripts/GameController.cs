@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour {
 
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
+		bonusPoints.Add ("Pineapple", 7);
 	}
 	
 	void Update () {

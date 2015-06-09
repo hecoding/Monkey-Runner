@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 				hangFromLiana (other.gameObject);
 			break;
 		case "Banana":
+		case "Pineapple":
 		case "BananaBunch":
 			GameController.S.modifyPoints (GameController.S.getPoints (other.tag));
 			Destroy (other.gameObject);
