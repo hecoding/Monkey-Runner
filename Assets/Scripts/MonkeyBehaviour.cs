@@ -58,7 +58,10 @@ public class MonkeyBehaviour : MonoBehaviour {
 	void hangFromLiana (GameObject other) {
 		rb.isKinematic = true;
 		transform.parent = other.transform;
-		transform.position = other.transform.position - new Vector3 (0.6f, 0, 0);
+		// setting to pretend the monkey is grabbing the liana (the sub is to preserve his real y)
+		transform.position = other.transform.position
+			- new Vector3 (0.6f, (other.transform.position.y - transform.position.y), 0);
+
 		other.GetComponent<Rigidbody2D>().mass += rb.mass;
 		
 		other.GetComponent<Rigidbody2D>().AddForce (new Vector2 (1, 0) * transmittedForceToLiana * rb.mass * 0.4f);
