@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 	static public PlayerController S;
 
 	public float initialForce;
+	public Vector2 initialDirection;
 	public float jumpForce;
 	public Vector2 jumpDirection;
 	public Vector2 maxAbsVelocity;
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Start () {
-		rb.AddForce (jumpDirection * initialForce);
+		rb.AddForce (initialDirection * initialForce);
 	}
 
 	void Update () {
