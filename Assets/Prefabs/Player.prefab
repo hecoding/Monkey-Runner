@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5018150}
   - 61: {fileID: 6138958}
   - 114: {fileID: 11471606}
+  - 114: {fileID: 11413498}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -60,6 +61,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.45111108, y: 2.18666673}
+--- !u!114 &11413498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bdc7bb8978d4a46b7473988aaa2af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transmittedForceToLiana: 1600
+  initialForce: 3000
+  initialDirection: {x: 2, y: 1}
+  jumpForce: 3800
+  jumpDirection: {x: 2, y: .699999988}
+  attachedObject: {fileID: 0}
 --- !u!114 &11471606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,13 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cde32513d4e9ce46ae52b1efe30d000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialForce: 3000
-  initialDirection: {x: 2, y: 1}
-  jumpForce: 3800
-  jumpDirection: {x: 2, y: .699999988}
   maxAbsVelocity: {x: 20, y: 20}
-  transmittedForceToLiana: 1600
-  attachedObject: {fileID: 0}
 --- !u!212 &21254320
 SpriteRenderer:
   m_ObjectHideFlags: 1
