@@ -18,6 +18,31 @@ public class GameController : MonoBehaviour {
 	private float currentCameraYPos;
 	private float offsetCameraXPos;
 
+	public bool[] lockedLevels;
+	public int[] starsLevels;
+	public static int NUM_LEVELS = 10;
+
+	public void initLockedLevels(){
+
+		lockedLevels = new bool[NUM_LEVELS];
+		lockedLevels [0] = false;
+		starsLevels = new int[NUM_LEVELS];
+		starsLevels [0] = 0;
+		for (int i = 1; i < NUM_LEVELS; i++) {
+			lockedLevels [i] = true;
+			starsLevels [i] = 0;
+		}
+
+	}
+
+	public void unlockLevel(int level){
+		lockedLevels [level] = false;
+	}
+
+	public void setStarsLevel (int level, int stars){
+		starsLevels [level] = stars;
+	}
+
 	private Dictionary<string, int> bonusPoints = new Dictionary<string, int>();
 
 	void Awake() {
@@ -30,7 +55,7 @@ public class GameController : MonoBehaviour {
 
 		_playerPoints = 0;
 		setCountText ();
-
+		initLockedLevels ();
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
 	}
