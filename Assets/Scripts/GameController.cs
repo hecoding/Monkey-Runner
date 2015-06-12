@@ -35,7 +35,6 @@ public class GameController : MonoBehaviour {
 //			Destroy (this.gameObject);
 
 		instantiatedPlayer = true;
-		//initLockedLevels ();
 
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
