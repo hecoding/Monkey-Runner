@@ -162,6 +162,7 @@ MonoBehaviour:
   framesFolder: AnimationFrames
   loop: 0
   FPS: 24
+  callbackSceneLoad: mainMenu
 --- !u!1 &1297284426
 GameObject:
   m_ObjectHideFlags: 0

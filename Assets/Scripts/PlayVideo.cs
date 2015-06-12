@@ -6,6 +6,7 @@ public class PlayVideo : MonoBehaviour {
 	public string framesFolder;
 	public bool loop = false;
 	public float FPS = 24;
+	public string callbackSceneLoad;
 
 	private float frameRateInSeconds;
 	private Texture[] frames;
@@ -28,7 +29,8 @@ public class PlayVideo : MonoBehaviour {
 		if (counter >= frames.LongLength) {
 			if (loop) counter = 0;
 			else {
-				// we're done, make callback or something
+				if(callbackSceneLoad.Length != 0)
+					Application.LoadLevel (callbackSceneLoad);
 			}
 		}
 	}

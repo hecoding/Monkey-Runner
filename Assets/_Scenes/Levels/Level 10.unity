@@ -172,7 +172,7 @@ RectTransform:
   m_Children:
   - {fileID: 1299984762}
   m_Father: {fileID: 438265912}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -130, y: -10}
@@ -218,8 +218,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1046332619}
-        m_MethodName: changeToScene
-        m_Mode: 5
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -319,7 +319,7 @@ GameObject:
   - 114: {fileID: 435119858}
   - 114: {fileID: 435119857}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,7 @@ RectTransform:
   m_Children:
   - {fileID: 970258440}
   m_Father: {fileID: 438265912}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -10}
@@ -390,7 +390,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: mainMenu
+          m_StringArgument: Level Selector
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -450,8 +450,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 435119856}
   - {fileID: 148185125}
+  - {fileID: 435119856}
   - {fileID: 764146967}
   - {fileID: 1847523832}
   - {fileID: 1435484434}
@@ -1292,6 +1292,7 @@ MonoBehaviour:
   countText: {fileID: 764146968}
   winText: {fileID: 1435484436}
   loseText: {fileID: 1847523835}
+  instantiatedPlayer: 0
 --- !u!81 &1046332614
 AudioListener:
   m_ObjectHideFlags: 0

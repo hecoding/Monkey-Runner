@@ -20,6 +20,16 @@ public class PlayerController : MonoBehaviour {
 		currentVelX = currentVelY = 0f;
 	}
 
+	void Start() {
+		int totalPoints = 0;
+		GameObject bonuses = GameObject.Find ("Bonus");
+
+		foreach (Transform bonus in bonuses.transform)
+			totalPoints += GameController.S.getPoints (bonus.name.Split (' ') [0]);
+
+		GameController.S.setLevel (int.Parse (Application.loadedLevelName.Split(' ')[1]), totalPoints);
+	}
+
 	void Update () {
 
 	}

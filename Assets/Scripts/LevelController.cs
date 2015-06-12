@@ -9,8 +9,6 @@ public class LevelController : MonoBehaviour {
 	}
 
 	void Start () {
-		GameController.S.instantiatedPlayer = false;
-
 		for (int i = 0; i < GameController.S.levels.Count; i++) {
 			Button btn = GameObject.Find("BLevel" + (i + 1)).GetComponent<Button> ();
 
@@ -18,13 +16,13 @@ public class LevelController : MonoBehaviour {
 				btn.interactable = false;
 
 			Image[] imgs = btn.GetComponentsInChildren<Image>();
-			//Pinta solo el numero de estrellas conseguidas.
+			// show number of stars achieved
 			for(int j = 0; j < 3-GameController.S.levels[i].starsAchieved; j++)
 					imgs[3-j].enabled = false;
 		}
 	}
 
 	void Update () {
-	
+		
 	}
 }
