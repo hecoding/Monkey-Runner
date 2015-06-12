@@ -3,43 +3,21 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	static public PlayerController S;
-
-	public float initialForce = 250.0f;
-	public float maxAbsVelX = 20.0f;
-	public float maxAbsVelY = 20.0f;
-	public float jumpForce = 250.0f;
-	public float transmittedForceToLiana = 1000.0f;
-	public GameObject attachedObject;
-
-	private Rigidbody2D rb;
-	private Transform oldParent;
-	private bool hanged;
+	
+	public Vector2 maxAbsVelocity;
+	
 	private Bounds playerBounds;
 	private float lowerBound;
 	private bool velChanged;
 	private float currentVelX;
 	private float currentVelY;
 
-	private Transform oldAttObjParent;
-	private bool attObjWasKinematic;
-
 	void Awake() {
 		S = this;
 
-		rb = GetComponent<Rigidbody2D> ();
-		oldParent = transform.parent;
 		lowerBound = Camera.main.ScreenToWorldPoint (new Vector3 (0, 0, 0)).y;
 		velChanged = false;
 		currentVelX = currentVelY = 0f;
-		
-		if (attachedObject)
-			attachObject (attachedObject);
-		attObjWasKinematic = false;
-	}
-	
-	void Start () {
-		// debugging stuff
-		rb.AddForce (new Vector2(2, 1) * initialForce);
 	}
 
 	void Update () {
@@ -47,60 +25,42 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (hanged && Input.GetKeyUp ("space")) {
-			rb.isKinematic = false;
-			rb.AddForce (new Vector2(2, 1) * jumpForce);
-			transform.rotation = Quaternion.Euler(0,0,0);
-			// some inverse force to the liana would be nice
-
-			transform.parent = oldParent;
-			hanged = false;
-		}
-
 		if (transform.position.y < lowerBound)
 			die ();
 
-		currentVelX = rb.velocity.x;
-		currentVelY = rb.velocity.y;
+		checkVelocityConstraints ();
+	}
 
-		if (Mathf.Abs (rb.velocity.x) > maxAbsVelX) {
-			currentVelX = maxAbsVelX * Mathf.Sign(rb.velocity.x);
+	void OnTriggerEnter2D (Collider2D other)  {
+		if (other.tag == "Finish") {
+			GetComponent<Rigidbody2D>().isKinematic = true; // do some good looking dance
+			GameController.S.winLevel();
+		}
+	}
+
+	void checkVelocityConstraints () {
+		Rigidbody2D rigidb;
+
+		if (GetComponent<Rigidbody2D>().isKinematic && transform.parent)
+			rigidb = transform.parent.GetComponent<Rigidbody2D> ();
+		else rigidb = GetComponent<Rigidbody2D>();
+
+		currentVelX = rigidb.velocity.x;
+		currentVelY = rigidb.velocity.y;
+
+		if (Mathf.Abs (rigidb.velocity.x) > maxAbsVelocity.x) {
+			currentVelX = maxAbsVelocity.x * Mathf.Sign (rigidb.velocity.x);
 			velChanged = true;
 		}
-		if (Mathf.Abs (rb.velocity.y) > maxAbsVelY) {
-			currentVelY = maxAbsVelY * Mathf.Sign(rb.velocity.y);
+
+		if (Mathf.Abs (rigidb.velocity.y) > maxAbsVelocity.y) {
+			currentVelY = maxAbsVelocity.y * Mathf.Sign (rigidb.velocity.y);
 			velChanged = true;
 		}
 
 		if (velChanged) {
-			rb.velocity = new Vector2 (currentVelX, currentVelY);
+			rigidb.velocity = new Vector2 (currentVelX, currentVelY);
 			velChanged = false;
-		}
-	}
-
-	void OnTriggerEnter2D (Collider2D other)  {
-		switch (other.tag) {
-		case "Liana": 
-			if (!hanged && Input.GetKey("space")) {
-				other.attachedRigidbody.AddForce(new Vector2(1,0) * transmittedForceToLiana);
-
-				rb.isKinematic = true;
-				transform.parent = other.transform;
-				transform.position = other.transform.position - new Vector3(0.6f,0,0);
-
-				hanged = true;
-			}
-
-			break;
-		case "Banana":
-		case "BananaBunch":
-			GameController.S.modifyPoints (GameController.S.getPoints (other.tag));
-			Destroy (other.gameObject);
-			break;
-		case "Finish":
-			rb.isKinematic = true; // do some good looking dance
-			GameController.S.winLevel();
-			break;
 		}
 	}
 
@@ -108,27 +68,5 @@ public class PlayerController : MonoBehaviour {
 		// transform.position = new Vector3(-5.92f,-2.35f,0f);
 		GameController.S.onDie ();
 		gameObject.SetActive (false);
-	}
-
-	public void attachObject (GameObject obj) {
-		if (obj) attachedObject = obj;
-		else 	 return;
-
-		if (!obj.GetComponent<Rigidbody2D> () || obj.GetComponent<Rigidbody2D> ().isKinematic)
-			attObjWasKinematic = true;
-		else
-			obj.GetComponent<Rigidbody2D> ().isKinematic = true;
-
-		oldAttObjParent = obj.transform.parent;
-		obj.transform.parent = transform;
-		// setting to pretend the monkey is grabbing the object
-		obj.transform.position = transform.position - new Vector3(0.5f,0.8f,0);
-	}
-
-	public void deattachObject (GameObject obj) {
-		if (!attObjWasKinematic)
-			obj.GetComponent<Rigidbody2D> ().isKinematic = false;
-
-		obj.transform.parent = oldAttObjParent;
 	}
 }
