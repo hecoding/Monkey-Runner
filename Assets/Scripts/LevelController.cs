@@ -4,7 +4,13 @@ using System.Collections;
 
 public class LevelController : MonoBehaviour {
 
+	void Awake () {
+
+	}
+
 	void Start () {
+		GameController.S.instantiatedPlayer = false;
+
 		for (int i = 0; i < GameController.S.levels.Count; i++) {
 			Button btn = GameObject.Find("BLevel" + (i + 1)).GetComponent<Button> ();
 

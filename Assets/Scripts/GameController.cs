@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
 	void Awake() {
 		S = this;
 
-		instantiatedPlayer = false;
+		instantiatedPlayer = true;
 		initLockedLevels ();
 	}
 
@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour {
 	}
 	
 	void Update () {
+		Debug.Log ("instantiated: " + instantiatedPlayer);
 		if (instantiatedPlayer) {
 			if (freezeCameraY) currentCameraYPos = initialCameraPos.y;
 			else 		 currentCameraYPos = PlayerController.S.transform.position.y;
