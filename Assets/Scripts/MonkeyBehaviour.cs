@@ -9,6 +9,7 @@ public class MonkeyBehaviour : MonoBehaviour {
 	public float jumpForce;
 	public Vector2 jumpDirection;
 	public GameObject attachedObject;
+	public GameObject createAfterBonusCatch;
 
 	private bool hanged;
 	private Transform oldParent;
@@ -50,6 +51,12 @@ public class MonkeyBehaviour : MonoBehaviour {
 		case "Pineapple":
 		case "BananaBunch":
 			GameController.S.modifyPoints (GameController.S.getPoints (other.tag));
+			if (createAfterBonusCatch) {
+				GameObject a = (GameObject)Instantiate (createAfterBonusCatch, other.transform.position, Quaternion.identity);
+				ParticleSystem b = a.GetComponent<ParticleSystem> ();
+				if (b)
+					b.Play();
+			}
 			Destroy (other.gameObject);
 			break;
 		}
