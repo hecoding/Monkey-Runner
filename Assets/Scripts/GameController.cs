@@ -38,11 +38,11 @@ public class GameController : MonoBehaviour {
 	private Dictionary<string, int> bonusPoints = new Dictionary<string, int>();
 
 	void Awake() {
-		if (S == null) {
+//		if (S == null) {
 			S = this;
-			DontDestroyOnLoad (gameObject);
-		} else
-			Destroy (this.gameObject);
+//			DontDestroyOnLoad (gameObject);
+//		} else
+//			Destroy (this.gameObject);
 
 		instantiatedPlayer = true;
 		initLockedLevels ();
