@@ -3,6 +3,16 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
+public class Level {
+	public bool locked { get; set; }
+	public int starsAchieved { get; set; }
+
+	public Level() {
+		locked = true;
+		starsAchieved = 0;
+	}
+}
+
 public class GameController : MonoBehaviour {
 	static public GameController S;
 
@@ -13,58 +23,45 @@ public class GameController : MonoBehaviour {
 	public Text loseText;
 	private int _playerPoints;
 	public int playerPoints { get { return _playerPoints; } }
-	
+
 	private Vector3 initialCameraPos;
 	private float currentCameraYPos;
 	private float offsetCameraXPos;
 
-	public bool[] lockedLevels;
-	public int[] starsLevels;
+	public bool instantiatedPlayer;
+	public List<Level> levels;
 	public static int NUM_LEVELS = 10;
-
-	public void initLockedLevels(){
-
-		lockedLevels = new bool[NUM_LEVELS];
-		lockedLevels [0] = false;
-		starsLevels = new int[NUM_LEVELS];
-		starsLevels [0] = 0;
-		for (int i = 1; i < NUM_LEVELS; i++) {
-			lockedLevels [i] = true;
-			starsLevels [i] = 0;
-		}
-
-	}
-
-	public void unlockLevel(int level){
-		lockedLevels [level] = false;
-	}
-
-	public void setStarsLevel (int level, int stars){
-		starsLevels [level] = stars;
-	}
 
 	private Dictionary<string, int> bonusPoints = new Dictionary<string, int>();
 
 	void Awake() {
 		S = this;
+
+		instantiatedPlayer = false;
+		initLockedLevels ();
 	}
 
 	void Start () {
-		initialCameraPos = transform.position;
-		offsetCameraXPos = transform.position.x - PlayerController.S.transform.position.x;
-
-		_playerPoints = 0;
-		setCountText ();
-		initLockedLevels ();
+		if (instantiatedPlayer) {
+			initialCameraPos = transform.position;
+			offsetCameraXPos = transform.position.x - PlayerController.S.transform.position.x;
+		
+			_playerPoints = 0;
+			setCountText ();
+		}
+		
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
+		bonusPoints.Add ("Pineapple", 7);
 	}
 	
 	void Update () {
-		if (freezeCameraY) currentCameraYPos = initialCameraPos.y;
-		else 		 currentCameraYPos = PlayerController.S.transform.position.y;
+		if (instantiatedPlayer) {
+			if (freezeCameraY) currentCameraYPos = initialCameraPos.y;
+			else 		 currentCameraYPos = PlayerController.S.transform.position.y;
 
-		transform.position = new Vector3 (PlayerController.S.transform.position.x + offsetCameraXPos, currentCameraYPos, initialCameraPos.z);
+			transform.position = new Vector3 (PlayerController.S.transform.position.x + offsetCameraXPos, currentCameraYPos, initialCameraPos.z);
+		}
 	}
 
 	public void winLevel() {
@@ -88,5 +85,22 @@ public class GameController : MonoBehaviour {
 
 	void setCountText() {
 		countText.text = "Score: " + _playerPoints.ToString ();
+	}
+
+	private void initLockedLevels(){
+		levels = new List<Level> ();
+
+		for (int i = 0; i < NUM_LEVELS; i++)
+			levels.Add (new Level ());
+
+		levels [0].locked = false;
+	}
+	
+	public void unlockLevel(int level){
+		levels [level].locked = false;
+	}
+	
+	public void setStarsLevel (int level, int stars){
+		levels [level].starsAchieved = stars;
 	}
 }
