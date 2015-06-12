@@ -30,9 +30,16 @@ public class PlayVideo : MonoBehaviour {
 			if (loop) counter = 0;
 			else {
 				if(callbackSceneLoad.Length != 0)
-					Application.LoadLevel (callbackSceneLoad);
+					loadCallback ();
 			}
 		}
+
+		if (Input.GetMouseButtonDown (0) || Input.GetKeyDown ("space"))
+			loadCallback ();
+	}
+
+	void loadCallback() {
+		Application.LoadLevel (callbackSceneLoad);
 	}
 	// no need to Resources.UnloadAsset since (I assume) we're destroying the current scene right after this
 }
