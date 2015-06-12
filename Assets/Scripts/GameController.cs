@@ -3,16 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Level {
-	public bool locked { get; set; }
-	public int starsAchieved { get; set; }
-
-	public Level() {
-		locked = true;
-		starsAchieved = 0;
-	}
-}
-
 public class GameController : MonoBehaviour {
 	static public GameController S;
 
@@ -31,7 +21,7 @@ public class GameController : MonoBehaviour {
 	private int totalPointsOfCurrentLevel;
 
 	public bool instantiatedPlayer;
-	public List<Level> levels;
+	//public List<Level> DataSaver.S.levels;
 	public static int NUM_LEVELS = 10;
 	public static int MIN_STARS_TO_UNLOCK = 1;
 
@@ -45,7 +35,7 @@ public class GameController : MonoBehaviour {
 //			Destroy (this.gameObject);
 
 		instantiatedPlayer = true;
-		initLockedLevels ();
+		//initLockedLevels ();
 
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
@@ -53,13 +43,13 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start () {
-		if (instantiatedPlayer) {
+		//if (instantiatedPlayer) {
 			initialCameraPos = transform.position;
 			offsetCameraXPos = transform.position.x - PlayerController.S.transform.position.x;
 		
 			_playerPoints = 0;
 			setCountText ();
-		}
+		//}
 	}
 	
 	void Update () {
@@ -81,10 +71,14 @@ public class GameController : MonoBehaviour {
 		winText.text = "You Win! Total points: " + _playerPoints.ToString ();
 		countText.text = "";
 
-		levels[currentLevel - 1].starsAchieved = Mathf.FloorToInt (((float)_playerPoints / (float)totalPointsOfCurrentLevel) * 3);
+		int stars = Mathf.FloorToInt (((float)_playerPoints / (float)totalPointsOfCurrentLevel) * 3);
 
-		if (currentLevel != NUM_LEVELS && levels [currentLevel].starsAchieved >= MIN_STARS_TO_UNLOCK)
-			levels [currentLevel].locked = false; // +1 for the next, -1 for the index
+		if (stars > DataSaver.S.levels [currentLevel - 1].starsAchieved) {
+			DataSaver.S.levels [currentLevel - 1].starsAchieved = stars;
+
+			if (currentLevel != NUM_LEVELS && DataSaver.S.levels [currentLevel - 1].starsAchieved >= MIN_STARS_TO_UNLOCK)
+				DataSaver.S.levels [currentLevel].locked = false; // +1 for the next, -1 for the index
+		}
 
 		instantiatedPlayer = false;
 	}
@@ -105,14 +99,5 @@ public class GameController : MonoBehaviour {
 
 	void setCountText() {
 		countText.text = "Score: " + _playerPoints.ToString ();
-	}
-
-	private void initLockedLevels(){
-		levels = new List<Level> ();
-
-		for (int i = 0; i < NUM_LEVELS; i++)
-			levels.Add (new Level ());
-
-		levels [0].locked = false;
 	}
 }
