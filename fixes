@@ -1,3 +1,3 @@
 - un botón en el menú que muestre los controles
 - decir que se necesita un mínimo de estrellas para desbloquear el siguiente nivel
-- poner algo con botones al terminar el nivel
+- poner un cuadradito con botones (en la misma escena) al terminar el nivel o al morir que tenga retry, volver al menú
