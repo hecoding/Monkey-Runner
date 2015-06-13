@@ -1,3 +1,5 @@
+- el botón reset del level selector no va
+- apañar botón pause
 - un botón en el menú que muestre los controles
 - decir que se necesita un mínimo de estrellas para desbloquear el siguiente nivel
 - poner un cuadradito con botones (en la misma escena) al terminar el nivel o al morir que tenga retry, volver al menú
