@@ -1,5 +1,16 @@
-- el botón reset del level selector no va
+de fácil a difícil
+
+- poner link a github en el about
 - apañar botón pause
-- un botón en el menú que muestre los controles
-- decir que se necesita un mínimo de estrellas para desbloquear el siguiente nivel
+- el botón reset del level selector no va
+- poner los bonus de los niveles 8 y 9 un poco más difíciles
+- poner más lejos las lianas de los últimos niveles y las últimas de los niveles de en medio
+- poner menos difícil la liana cerca de la piña del nivel 8
+- separar un poco las lianas del final del nivel 9
+- poner más difícil el 10 pero la dificultad de la piña está bien
+- al colgarse de la 2a liana del nivel 6 se ve el fondo azul por atrás
+- decir que se necesita un mínimo de estrellas para desbloquear el siguiente nivel (poner un texto en el fondo del primer nivel,
+								junto con lo que se tiene que hacer para agarrarse, parecido a la escena de los controles)
+- las lianas ligeras no se distinguen de las normales si vas rápido
+- un botón en el menú que muestre los controles (una nueva escena)
 - poner un cuadradito con botones (en la misma escena) al terminar el nivel o al morir que tenga retry, volver al menú
