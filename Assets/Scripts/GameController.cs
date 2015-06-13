@@ -42,23 +42,23 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start () {
-		//if (instantiatedPlayer) {
+		if (instantiatedPlayer) {
 			initialCameraPos = transform.position;
 			offsetCameraXPos = transform.position.x - PlayerController.S.transform.position.x;
 		
 			_playerPoints = 0;
 			setCountText ();
-		//}
+		}
 	}
 	
 	void Update () {
-		Debug.Log ("instantiated: " + instantiatedPlayer);
-		//if (instantiatedPlayer) {
+			Debug.Log ("instantiated: " + instantiatedPlayer);
+		if (instantiatedPlayer) {
 			if (freezeCameraY) currentCameraYPos = initialCameraPos.y;
 			else 		 currentCameraYPos = PlayerController.S.transform.position.y;
 
 			transform.position = new Vector3 (PlayerController.S.transform.position.x + offsetCameraXPos, currentCameraYPos, initialCameraPos.z);
-		//}
+		}
 	}
 
 	public void setLevel (int currLevel, int totalPoints) {
@@ -85,6 +85,7 @@ public class GameController : MonoBehaviour {
 	public void onDie() {
 		loseText.text = "You Lose! Total points: " + _playerPoints.ToString ();
 		countText.text = "";
+		instantiatedPlayer = false;
 	}
 
 	public int getPoints (string bonusName) {
