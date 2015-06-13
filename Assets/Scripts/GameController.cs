@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour {
 	static public GameController S;
 
-	// a public reference to the player would be better than take it directly
 	public bool freezeCameraY;
 	public Text countText;
 	public Text winText;
@@ -20,21 +19,13 @@ public class GameController : MonoBehaviour {
 	private int currentLevel;
 	private int totalPointsOfCurrentLevel;
 
-	public bool instantiatedPlayer;
-	//public List<Level> DataSaver.S.levels;
 	public static int NUM_LEVELS = 10;
 	public static int MIN_STARS_TO_UNLOCK = 1;
 
 	private Dictionary<string, int> bonusPoints = new Dictionary<string, int>();
 
 	void Awake() {
-//		if (S == null) {
 			S = this;
-//			DontDestroyOnLoad (gameObject);
-//		} else
-//			Destroy (this.gameObject);
-
-		instantiatedPlayer = true;
 
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
@@ -42,23 +33,18 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start () {
-		if (instantiatedPlayer) {
-			initialCameraPos = transform.position;
-			offsetCameraXPos = transform.position.x - PlayerController.S.transform.position.x;
-		
-			_playerPoints = 0;
-			setCountText ();
-		}
+		initialCameraPos = transform.position;
+		offsetCameraXPos = transform.position.x - PlayerController.S.transform.position.x;
+	
+		_playerPoints = 0;
+		setCountText ();
 	}
 	
 	void Update () {
-			Debug.Log ("instantiated: " + instantiatedPlayer);
-		if (instantiatedPlayer) {
-			if (freezeCameraY) currentCameraYPos = initialCameraPos.y;
-			else 		 currentCameraYPos = PlayerController.S.transform.position.y;
+		if (freezeCameraY) currentCameraYPos = initialCameraPos.y;
+		else 		 currentCameraYPos = PlayerController.S.transform.position.y;
 
-			transform.position = new Vector3 (PlayerController.S.transform.position.x + offsetCameraXPos, currentCameraYPos, initialCameraPos.z);
-		}
+		transform.position = new Vector3 (PlayerController.S.transform.position.x + offsetCameraXPos, currentCameraYPos, initialCameraPos.z);
 	}
 
 	public void setLevel (int currLevel, int totalPoints) {
@@ -78,14 +64,11 @@ public class GameController : MonoBehaviour {
 			if (currentLevel != NUM_LEVELS && DataSaver.S.levels [currentLevel - 1].starsAchieved >= MIN_STARS_TO_UNLOCK)
 				DataSaver.S.levels [currentLevel].locked = false; // +1 for the next, -1 for the index
 		}
-
-		instantiatedPlayer = false;
 	}
 
 	public void onDie() {
 		loseText.text = "You Lose! Total points: " + _playerPoints.ToString ();
 		countText.text = "";
-		instantiatedPlayer = false;
 	}
 
 	public int getPoints (string bonusName) {
