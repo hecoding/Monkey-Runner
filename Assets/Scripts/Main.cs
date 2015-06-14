@@ -25,6 +25,14 @@ public class Main : MonoBehaviour {
 			Time.timeScale = oldTimeScale;
 	}
 
+	public void resume() {
+		Pause ();
+	}
+
+	public bool isPaused() {
+		return Time.timeScale == 0;
+	}
+
 	public void Quit() {
 		Application.Quit();
 	}

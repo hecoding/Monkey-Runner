@@ -28,11 +28,17 @@ public class DataSaver : MonoBehaviour {
 	}
 
 	private void initLockedLevels(){
-		DataSaver.S.levels = new List<Level> ();
+		levels = new List<Level> ();
 		
+		reset ();
+	}
+
+	public void reset() {
+		levels.Clear ();
+
 		for (int i = 0; i < 10; i++)
-			DataSaver.S.levels.Add (new Level ());
+			levels.Add (new Level ());
 		
-		DataSaver.S.levels [0].locked = false;
+		levels [0].locked = false;
 	}
 }

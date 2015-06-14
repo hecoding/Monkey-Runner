@@ -80,6 +80,10 @@ public class GameController : MonoBehaviour {
 		setCountText ();
 	}
 
+	public void resetScore() {
+		DataSaver.S.reset ();
+	}
+
 	void setCountText() {
 		countText.text = "Score: " + _playerPoints.ToString ();
 	}

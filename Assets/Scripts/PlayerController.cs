@@ -79,4 +79,10 @@ public class PlayerController : MonoBehaviour {
 		GameController.S.onDie ();
 		gameObject.SetActive (false);
 	}
+
+	void OnDestroy() {
+		// TODO this should be Resume() of other object
+		if (Time.timeScale == 0)
+			Time.timeScale = 1;
+	}
 }

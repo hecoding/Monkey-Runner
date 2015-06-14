@@ -1717,6 +1717,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &344039249
 MonoBehaviour:
@@ -2285,7 +2286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &920082372
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2344,7 +2345,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1347737020}
-        m_MethodName: initLockedLevels
+        m_MethodName: resetScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2897,6 +2898,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!222 &1347737014
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2967,7 +2969,6 @@ MonoBehaviour:
   countText: {fileID: 0}
   winText: {fileID: 0}
   loseText: {fileID: 0}
-  instantiatedPlayer: 0
 --- !u!1 &1353791643
 GameObject:
   m_ObjectHideFlags: 0
