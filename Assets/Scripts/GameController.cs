@@ -22,14 +22,20 @@ public class GameController : MonoBehaviour {
 	public static int NUM_LEVELS = 10;
 	public static int MIN_STARS_TO_UNLOCK = 1;
 
+	private bool finished;
+	private bool wins;
+	
 	private Dictionary<string, int> bonusPoints = new Dictionary<string, int>();
 
 	void Awake() {
 			S = this;
+		finished = false;
+		wins = false;
 
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
 		bonusPoints.Add ("Pineapple", 7);
+
 	}
 
 	void Start () {
@@ -53,6 +59,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void winLevel() {
+		wins = true;
+		finished = true;
 		winText.text = "You Win! Total points: " + _playerPoints.ToString ();
 		countText.text = "";
 
@@ -66,7 +74,30 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	public void OnGUI(){
+
+		if(finished){
+			GUI.Box(new Rect(250,100,220,150), " ");
+
+			if(GUI.Button(new Rect(260,210,60,25), "Retry")) {
+				Application.LoadLevel("Level " + currentLevel);
+			}
+
+			if(wins){
+				if(GUI.Button(new Rect(400,210,60,25), "Back")) {
+					Application.LoadLevel("Level Selector");
+				}
+			}
+
+			if(GUI.Button(new Rect(330,210,60,25), "Object")) {
+				Application.LoadLevel("Object Viewer");
+			}
+
+		}
+	}
+	
 	public void onDie() {
+		finished = true;
 		loseText.text = "You Lose! Total points: " + _playerPoints.ToString ();
 		countText.text = "";
 	}
