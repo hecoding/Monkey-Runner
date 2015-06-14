@@ -9,6 +9,7 @@ public class MonkeyBehaviour : MonoBehaviour {
 	public float jumpForce;
 	public Vector2 jumpDirection;
 	public GameObject attachedObject;
+	public bool recolocateObject;
 	public GameObject createAfterBonusCatch;
 
 	private bool hanged;
@@ -100,7 +101,8 @@ public class MonkeyBehaviour : MonoBehaviour {
 		obj.transform.parent = transform;
 
 		// setting to pretend the monkey is grabbing the object
-		obj.transform.position = transform.position - new Vector3(0.5f,0.8f,0);
+		if (recolocateObject)
+			obj.transform.position = transform.position - new Vector3(0.5f,0.8f,0);
 	}
 	
 	public void deattachObject (GameObject obj) {
