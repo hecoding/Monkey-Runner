@@ -84,7 +84,8 @@ public class MonkeyBehaviour : MonoBehaviour {
 		transform.parent.GetComponent<Rigidbody2D> ().mass -= rb.mass;
 		transform.parent = oldParent;
 		hanged = false;
-		GetComponent<AudioSource> ().Play ();
+		if (Random.Range (0, 5) == 0)
+			GetComponent<AudioSource> ().Play ();
 	}
 
 	public void attachObject (GameObject obj) {
