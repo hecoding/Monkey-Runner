@@ -458,7 +458,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 499296, guid: 0e7c7c749fca88145ac3bc1f1e81e879, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 60.8499985
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 499296, guid: 0e7c7c749fca88145ac3bc1f1e81e879, type: 2}
       propertyPath: m_LocalPosition.y
@@ -575,8 +575,7 @@ MonoBehaviour:
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Level Selector
@@ -926,6 +925,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &745327452
 MonoBehaviour:
@@ -1348,11 +1348,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 490078, guid: ac2ba7c8497e99b4992361f26da4ff90, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 88.3899994
+      value: 91.5999985
       objectReference: {fileID: 0}
     - target: {fileID: 490078, guid: ac2ba7c8497e99b4992361f26da4ff90, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .779999971
+      value: -.0599999987
       objectReference: {fileID: 0}
     - target: {fileID: 490078, guid: ac2ba7c8497e99b4992361f26da4ff90, type: 2}
       propertyPath: m_LocalPosition.z

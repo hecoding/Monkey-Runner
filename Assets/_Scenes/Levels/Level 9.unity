@@ -151,7 +151,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 499296, guid: 0e7c7c749fca88145ac3bc1f1e81e879, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 144.070007
+      value: 147.070007
       objectReference: {fileID: 0}
     - target: {fileID: 499296, guid: 0e7c7c749fca88145ac3bc1f1e81e879, type: 2}
       propertyPath: m_LocalPosition.y
@@ -525,8 +525,7 @@ MonoBehaviour:
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Level Selector
@@ -780,6 +779,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &745327452
 MonoBehaviour:
@@ -816,7 +816,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 427656, guid: 2a543f30220057143898eedd69c2fb1d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 185
+      value: 199.399994
       objectReference: {fileID: 0}
     - target: {fileID: 427656, guid: 2a543f30220057143898eedd69c2fb1d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -858,7 +858,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 454726, guid: 65ab7b25bb0a5e84fb301bdebfda0043, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 171
+      value: 181
       objectReference: {fileID: 0}
     - target: {fileID: 454726, guid: 65ab7b25bb0a5e84fb301bdebfda0043, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1499,7 +1499,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 450886, guid: f6827db4b7779e6418f60f764d5a2848, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 156
+      value: 159
       objectReference: {fileID: 0}
     - target: {fileID: 450886, guid: f6827db4b7779e6418f60f764d5a2848, type: 2}
       propertyPath: m_LocalPosition.y
