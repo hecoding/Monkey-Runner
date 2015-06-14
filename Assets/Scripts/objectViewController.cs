@@ -37,15 +37,11 @@ public class objectViewController : MonoBehaviour {
 			Debug.Log("Load Object Fail");
 
 		Sprite newSprite = Resources.Load<Sprite> (objects[randomNumber]);
-
-		Debug.Log(newSprite);
-
 		img.sprite = newSprite;
 
-		Debug.Log(img);
+		//GUI.Box(new Rect(200,100,324,246), " ");
 
 		TextAsset texto = Resources.Load<TextAsset> (objects[randomNumber]);
-
 		objectText.text = texto.text;
 
 
