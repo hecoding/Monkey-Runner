@@ -77,22 +77,22 @@ public class GameController : MonoBehaviour {
 	public void OnGUI(){
 
 		if(finished){
-			GUI.Box(new Rect(250,100,220,150), " ");
+			GUI.Box(new Rect(200,100,220,150), " ");
 
-			if(GUI.Button(new Rect(260,210,60,25), "Retry")) {
+			if(GUI.Button(new Rect(210,210,60,25), "Retry")) {
 				Application.LoadLevel("Level " + currentLevel);
 			}
 
+			if(GUI.Button(new Rect(350,210,60,25), "Back")) {
+				Application.LoadLevel("Level Selector");
+			}
+
 			if(wins){
-				if(GUI.Button(new Rect(400,210,60,25), "Back")) {
-					Application.LoadLevel("Level Selector");
+				if(GUI.Button(new Rect(280,210,60,25), "Object")) {
+					Application.LoadLevel("Object Viewer");
 				}
 			}
-
-			if(GUI.Button(new Rect(330,210,60,25), "Object")) {
-				Application.LoadLevel("Object Viewer");
-			}
-
+			// disable other buttons on screen
 		}
 	}
 	

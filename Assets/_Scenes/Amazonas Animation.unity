@@ -161,8 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   framesFolder: AmazonasAnimation
   loop: 0
-  FPS: 24
-  callbackSceneLoad: Level 1
+  FPS: 30
+  callbackSceneLoad: Level selector
 --- !u!1 &1297284426
 GameObject:
   m_ObjectHideFlags: 0

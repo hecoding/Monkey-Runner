@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Text;
 using System.IO; 
-using System.Collections;
 using System.Collections.Generic; 
 
 
