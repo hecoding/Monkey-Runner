@@ -8,7 +8,8 @@ using System.Collections.Generic;
 
 public class objectViewController : MonoBehaviour {
 
-	public Text objectText;
+	public Image image;
+	public Text textHolder;
 	
 	private Dictionary<int, string> objects = new Dictionary<int, string>();//level-object
 
@@ -29,27 +30,10 @@ public class objectViewController : MonoBehaviour {
 		objects.Add (9, "Tambor");
 		objects.Add (10, "Tobillera");
 
-
-		
-		SpriteRenderer img = GameObject.Find("Object").GetComponent<SpriteRenderer>();
-
-		if(img == null)
-			Debug.Log("Load Object Fail");
-
 		Sprite newSprite = Resources.Load<Sprite> (objects[randomNumber]);
-		img.sprite = newSprite;
-
-		//GUI.Box(new Rect(200,100,324,246), " ");
+		image.sprite = newSprite;
 
 		TextAsset texto = Resources.Load<TextAsset> (objects[randomNumber]);
-		objectText.text = texto.text;
-
-
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		textHolder.text = texto.text;
 	}
 }

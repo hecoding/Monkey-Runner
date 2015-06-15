@@ -10,6 +10,13 @@ public class GameController : MonoBehaviour {
 	public Text countText;
 	public Text winText;
 	public Text loseText;
+	public Image backgroundBox;
+	public Button retryButton;
+	public Text retryButtonText;
+	public Button ObjectButton;
+	public Text objectButtonText;
+	public Button backButton;
+	public Text backButtonText;
 	private int _playerPoints;
 	public int playerPoints { get { return _playerPoints; } }
 
@@ -22,15 +29,10 @@ public class GameController : MonoBehaviour {
 	public static int NUM_LEVELS = 10;
 	public static int MIN_STARS_TO_UNLOCK = 1;
 
-	private bool finished;
-	private bool wins;
-	
 	private Dictionary<string, int> bonusPoints = new Dictionary<string, int>();
 
 	void Awake() {
 			S = this;
-		finished = false;
-		wins = false;
 
 		bonusPoints.Add ("Banana", 2);
 		bonusPoints.Add ("BananaBunch", 5);
@@ -59,8 +61,17 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void winLevel() {
-		wins = true;
-		finished = true;
+		backgroundBox.enabled = true;
+		retryButton.image.enabled = true;
+		retryButtonText.enabled = true;
+		retryButton.enabled = true;
+		ObjectButton.image.enabled = true;
+		objectButtonText.enabled = true;
+		ObjectButton.enabled = true;
+		backButton.image.enabled = true;
+		backButtonText.enabled = true;
+		backButton.enabled = true;
+
 		winText.text = "You Win! Total points: " + _playerPoints.ToString ();
 		countText.text = "";
 
@@ -74,32 +85,16 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	public void OnGUI(){
-
-		if(finished){
-			GUI.Box(new Rect(200,100,220,150), " ");
-
-			if(GUI.Button(new Rect(210,210,60,25), "Retry")) {
-				Application.LoadLevel("Level " + currentLevel);
-			}
-
-			if(GUI.Button(new Rect(350,210,60,25), "Back")) {
-				Application.LoadLevel("Level Selector");
-			}
-
-			if(wins){
-				if(GUI.Button(new Rect(280,210,60,25), "Object")) {
-					Application.LoadLevel("Object Viewer");
-				}
-			}
-			// disable other buttons on screen
-		}
-	}
-	
 	public void onDie() {
-		finished = true;
-		loseText.text = "You Lose! Total points: " + _playerPoints.ToString ();
-		countText.text = "";
+		backgroundBox.enabled = true;
+		retryButton.image.enabled = true;
+		retryButtonText.enabled = true;
+		retryButton.enabled = true;
+		backButton.image.enabled = true;
+		backButtonText.enabled = true;
+		backButton.enabled = true;
+
+		loseText.enabled = true;
 	}
 
 	public int getPoints (string bonusName) {
@@ -113,6 +108,10 @@ public class GameController : MonoBehaviour {
 
 	public void resetScore() {
 		DataSaver.S.reset ();
+	}
+
+	public int getCurrentLevel() {
+		return currentLevel;
 	}
 
 	void setCountText() {

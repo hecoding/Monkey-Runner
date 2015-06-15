@@ -95,7 +95,13 @@ MonoBehaviour:
   countText: {fileID: 0}
   winText: {fileID: 0}
   loseText: {fileID: 0}
-  instantiatedPlayer: 0
+  backgroundBox: {fileID: 0}
+  retryButton: {fileID: 0}
+  retryButtonText: {fileID: 0}
+  ObjectButton: {fileID: 0}
+  objectButtonText: {fileID: 0}
+  backButton: {fileID: 0}
+  backButtonText: {fileID: 0}
 --- !u!114 &11473822
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,11 +4,9 @@ de fácil a difícil
 - poner menos difícil la liana cerca de la piña del nivel 8 | yesh
 - poner sprite de rama
 - apañar botón pause
-- el botón reset del level selector no va
 - al colgarse de la 2a liana del nivel 6 se ve el fondo azul por atrás
 - decir que se necesita un mínimo de estrellas para desbloquear el siguiente nivel (poner un texto en el fondo del primer nivel,
 								junto con lo que se tiene que hacer para agarrarse, parecido a la escena de los controles)
 - las lianas ligeras no se distinguen de las normales si vas rápido
-- un botón en el menú que muestre los controles (una nueva escena)
 - poner un cuadradito con botones (en la misma escena) al terminar el nivel (que muestre estrellas) o al morir (que no muestre puntos) que tenga retry, volver al menú
-- poner sonidos
+- poner sonidos que faltan y música

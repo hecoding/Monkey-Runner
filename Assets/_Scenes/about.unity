@@ -119,8 +119,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -160.300003, y: -50}
-  m_SizeDelta: {x: 376, y: 207.800003}
+  m_AnchoredPosition: {x: -160.300003, y: -44.9000015}
+  m_SizeDelta: {x: 376, y: 203.580002}
   m_Pivot: {x: .5, y: .5}
 --- !u!131 &52785072
 GUITexture:
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: .710344791, a: 1}
+  m_Color: {r: 0, g: 1, b: .00689649582, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20

@@ -17,6 +17,10 @@ public class Main : MonoBehaviour {
 		Application.LoadLevel (scene);
 	}
 
+	public void rechargeScene() {
+		Application.LoadLevel ("Level " + GameController.S.getCurrentLevel());
+	}
+
 	public void Pause() {
 		if (Time.timeScale != 0) {
 			oldTimeScale = Time.timeScale;

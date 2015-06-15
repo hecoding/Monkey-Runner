@@ -16,6 +16,8 @@ public class DataSaver : MonoBehaviour {
 	public static DataSaver S;
 
 	public List<Level> levels;
+	public float musicVolume;
+	public float effectsVolume;
 
 	void Awake () {
 		if (S == null) {
@@ -25,6 +27,8 @@ public class DataSaver : MonoBehaviour {
 			Destroy (gameObject);
 
 		initLockedLevels ();
+		musicVolume = 1;
+		effectsVolume = 1;
 	}
 
 	private void initLockedLevels(){

@@ -162,7 +162,7 @@ MonoBehaviour:
   framesFolder: AmazonasAnimation
   loop: 0
   FPS: 30
-  callbackSceneLoad: Level selector
+  callbackSceneLoad: mainMenu
 --- !u!1 &1297284426
 GameObject:
   m_ObjectHideFlags: 0
