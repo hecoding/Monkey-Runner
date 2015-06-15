@@ -519,7 +519,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -940,8 +940,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 150.399994, y: -97.0999985}
-  m_SizeDelta: {x: 280, y: 158.699997}
+  m_AnchoredPosition: {x: 188.400024, y: -44.9000015}
+  m_SizeDelta: {x: 282, y: 38}
   m_Pivot: {x: .5, y: .5}
 --- !u!131 &1715082322
 GUITexture:
@@ -982,12 +982,14 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Music from Incompetech
+  m_Text: 'Music from FreeMusicArchive
+
+'
 --- !u!222 &1715082324
 CanvasRenderer:
   m_ObjectHideFlags: 0

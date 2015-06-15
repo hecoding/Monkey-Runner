@@ -10,5 +10,7 @@ public class OptionsController : MonoBehaviour {
 	void Update () {
 		DataSaver.S.musicVolume = musicSlider.value;
 		DataSaver.S.effectsVolume = effectsSlider.value;
+
+		AudioListener.volume = DataSaver.S.musicVolume;
 	}
 }
